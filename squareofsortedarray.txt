@@ -1,0 +1,16 @@
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        square = [i*i for i in nums]
+        left = 0
+        right = len(square)-1
+        results = []
+        
+        while left<=right:
+            if square[left]>square[right]:
+                results.append(square[left])
+                left+=1
+            else:
+                results.append(square[right])
+                right-=1
+        
+        return results[::-1]
